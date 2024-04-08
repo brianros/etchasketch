@@ -15,6 +15,7 @@ let eraserMode = false;
 let rainbowMode = false;
 let opacityMode = false;
 let isGrid = true;
+let rainbowIndex = 0;
 
 showGrid.style.backgroundColor='#FF9595'
 
@@ -23,26 +24,29 @@ range.addEventListener('input', function() {
 });
 
 
-showGrid.addEventListener('click',toggleGrid())
+showGrid.addEventListener('click',function() {
+  isGrid = isGrid ? false : true;
+  toggleGrid()
+});  
 
 
-eraserT.addEventListener('click',function() {
+function toggleEraser() {
+  console.log('eraserMode: ' + eraserMode)
   eraserMode = eraserMode ? false : true;
   eraserMode ? eraserT.style.backgroundColor='#FF9595' : eraserT.style.backgroundColor=''
-});
+  console.log('eraserMode: ' + eraserMode)
+}
+
+eraserT.addEventListener('click',toggleEraser);
 
 
 rainbowT.addEventListener('click',function() {
   rainbowMode = rainbowMode ? false : true;
-  console.log(rainbowMode)
+  if (eraserMode) {toggleEraser()}
   rainbowMode ? rainbowT.style.backgroundColor='#FF9595' : rainbowT.style.backgroundColor=''
   });
 
 
-showGrid.addEventListener('click',function() {
-    isGrid = isGrid ? false : true;
-    toggleGrid()
-  });  
 
 
 function toggleGrid() {
@@ -55,18 +59,16 @@ function toggleGrid() {
   });
 }
 
-reset.addEventListener('click',() => {
-  resetlogic();
-  
-})
+reset.addEventListener('click',resetlogic)
 
 function resetlogic() {
+  console.log('reset clicked')
   let toReset = document.querySelectorAll('.gridMember')
   toReset.forEach(div => {
-    div.classList.add('reset');})
-    setTimeout(() => {
-      toReset.forEach(div => div.classList.remove('reset'));
-       }, 1000); 
+    div.classList.add('reset')
+    div.style.backgroundColor = 'white'})
+    setTimeout(() => {updateGrid(range.value)},500)
+       
 
 }
 
@@ -74,7 +76,6 @@ function resetlogic() {
 document.body.onmousedown = () => {
   mouseDown = true;
 };
-
 
 document.body.onmouseup = () => {
   mouseDown = false;
@@ -103,7 +104,7 @@ function createDivs(size){
     
 
 }
-let rainbowIndex = 0;
+
 
 function paintDiv(event) {if (mouseDown)  {
   if (eraserMode) {
@@ -121,10 +122,6 @@ function paintDiv(event) {if (mouseDown)  {
 }
   else {event.target.style.backgroundColor = selected;}}
 };
-
-
-
-
 
 function updateGrid (newValue) {
   gridConts.innerHTML=''
