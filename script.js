@@ -4,7 +4,7 @@ const rainbow = document.getElementById('rainbow')
 const range = document.getElementById('size')
 const showGrid = document.getElementById('toggleGrid')
 const eraserT = document.getElementById('eraser')
-
+const textG = document.getElementById('sliderText')
 
 let colorSelector = document.getElementById('colorInput');
 let selected = "#000000";
@@ -94,6 +94,7 @@ function updateGrid (newValue) {
   gridConts.innerHTML=''
   createDivs(newValue)
   console.log(newValue)
+  textG.innerText = 'Select the grid size: ' + '\n' + range.value + ' by ' +range.value;
 }
 
 updateGrid(range.value)

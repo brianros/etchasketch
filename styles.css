@@ -13,6 +13,14 @@ body {
     
 } */
 
+#sliderText {
+    text-align: center;
+    border: 2px black solid;
+    padding: 20px;
+}
+
+#size {border: 2px black solid;}
+
 #title {
     width: 60%;
     align-items: center;
