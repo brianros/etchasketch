@@ -4,6 +4,7 @@ const rainbow = document.getElementById('rainbow')
 const resetButton = document.getElementById('reset')
 const range = document.getElementById('size')
 const showGrid = document.getElementById('toggleGrid')
+showGrid.style.backgroundColor='#FF9595'
 
 let colorSelector = document.getElementById('colorInput');
 let selected = "#000000";
@@ -29,6 +30,8 @@ showGrid.addEventListener('click',function() {
 });
 
 function toggleGrid() {
+  isGrid ? showGrid.innerText='Grid ON' : showGrid.innerText='Grid OFF'
+  isGrid ? showGrid.style.backgroundColor='#FF9595' : showGrid.style.backgroundColor=''
   let selection = document.querySelectorAll('.gridMember');
   selection.forEach(div => {
       div.classList.toggle('gridMemberBorder');
