@@ -1,10 +1,10 @@
 const gridConts = document.getElementById('gridContainer')
-const reset = document.getElementById('eraser');
+const reset = document.getElementById('resetButton');
 const rainbow = document.getElementById('rainbow')
-const resetButton = document.getElementById('reset')
 const range = document.getElementById('size')
 const showGrid = document.getElementById('toggleGrid')
-showGrid.style.backgroundColor='#FF9595'
+const eraserT = document.getElementById('eraser')
+
 
 let colorSelector = document.getElementById('colorInput');
 let selected = "#000000";
@@ -16,16 +16,21 @@ let rainbowMode = false;
 let opacityMode = false;
 let isGrid = true;
 
-
+showGrid.style.backgroundColor='#FF9595'
 
 range.addEventListener('input', function() {
   updateGrid(range.value);
 });
 
 
+eraserT.addEventListener('click',function() {
+  eraserMode = eraserMode ? false : true;
+  eraserMode ? eraserT.style.backgroundColor='#FF9595' : eraserT.style.backgroundColor=''
+});
+
+
 showGrid.addEventListener('click',function() {
   isGrid = isGrid ? false : true;
-  console.log(isGrid)
   toggleGrid()
 });
 
@@ -74,7 +79,11 @@ function createDivs(size){
 
 
 function paintDiv(event) {if (mouseDown)  {
-  event.target.style.backgroundColor = selected;}
+  if (eraserMode) {
+    event.target.style.backgroundColor = ''
+    }
+  else {
+  event.target.style.backgroundColor = selected;}}
 };
 
 
