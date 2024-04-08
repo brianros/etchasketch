@@ -15,7 +15,7 @@ let eraserMode = false;
 let rainbowMode = false;
 let opacityMode = false;
 let isGrid = true;
-let rainbowIndex = 0;
+let hsl = [0,100,50]
 
 showGrid.style.backgroundColor='#FF9595'
 
@@ -98,26 +98,21 @@ function createDivs(size){
         newDiv.style.height = 'calc(100% / ' + size + ')';
         if (isGrid)  {newDiv.classList.add('gridMemberBorder')};
         gridConts.appendChild(newDiv);
-        
-
+         }
     }
-    
-
-}
 
 
 function paintDiv(event) {if (mouseDown)  {
   if (eraserMode) {
     event.target.style.backgroundColor = ''
     }
-  else if (rainbowMode) {let rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+  else if (rainbowMode) {
+    
   
-  
-  event.target.style.backgroundColor = rainbowColors[rainbowIndex].toLowerCase(); // Set the current color
-  rainbowIndex++; // Increment the color index
-  console.log(rainbowIndex)
-  if (rainbowIndex >= rainbowColors.length) {
-      rainbowIndex = 0; // Wrap around to the first color if index exceeds the array length
+  event.target.style.backgroundColor = 'hsl('+hsl[0]+','+hsl[1]+'%,'+hsl[2]+'%)'; 
+  hsl[0]+=10; 
+  if (hsl[0] >= 360) {
+      hsl[0] = 0; 
       }
 }
   else {event.target.style.backgroundColor = selected;}}
