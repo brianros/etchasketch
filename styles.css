@@ -19,7 +19,15 @@ body {
     padding: 20px;
 }
 
-#size {border: 2px black solid;}
+.reset {
+background-color: white;
+transition: background-color 0.5s ease;
+}
+
+
+
+
+#sizeCont {border: 2px black solid;}
 
 #title {
     width: 60%;

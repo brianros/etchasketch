@@ -44,6 +44,23 @@ function toggleGrid() {
   });
 }
 
+reset.addEventListener('click',() => {
+  resetlogic();
+  
+})
+
+function resetlogic() {
+  let toReset = document.querySelectorAll('.gridMember')
+  toReset.forEach(div => {
+    div.style.backgroundColor=('white')
+    div.classList.add('reset');})
+    setTimeout(() => {
+      toReset.forEach(div => div.classList.remove('reset'));
+       }, 1000); 
+
+}
+
+
 document.body.onmousedown = () => {
   mouseDown = true;
 };
