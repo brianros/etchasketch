@@ -25,6 +25,24 @@ transition: background-color 0.5s ease;
 }
 
 
+.rainbowbkg {
+    background: linear-gradient(45deg,
+    hsl(0, 100%, 50%, 0.7),
+    hsl(30, 100%, 50%, 0.7),
+    hsl(60, 100%, 50%, 0.7),
+    hsl(90, 100%, 50%, 0.7),
+    hsl(120, 100%, 50%, 0.7),
+    hsl(150, 100%, 50%, 0.7),
+    hsl(180, 100%, 50%, 0.7),
+    hsl(210, 100%, 50%, 0.7),
+    hsl(240, 100%, 50%, 0.7),
+    hsl(270, 100%, 50%, 0.7),
+    hsl(300, 100%, 50%, 0.7),
+    hsl(330, 100%, 50%, 0.7),
+    hsl(360, 100%, 50%, 0.7));
+
+  }
+
 
 
 #sizeCont {border: 2px black solid;}

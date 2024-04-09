@@ -43,7 +43,7 @@ eraserT.addEventListener('click',toggleEraser);
 rainbowT.addEventListener('click',function() {
   rainbowMode = rainbowMode ? false : true;
   if (eraserMode) {toggleEraser()}
-  rainbowMode ? rainbowT.style.backgroundColor='#FF9595' : rainbowT.style.backgroundColor=''
+  rainbowMode ? rainbowT.classList.add('rainbowbkg') : rainbowT.classList.remove('rainbowbkg')
   });
 
 
