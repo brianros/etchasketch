@@ -5,6 +5,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     border:none;
+    font-family: 'Roboto', sans-serif;
+
 }
  
 /* body  * {
@@ -107,3 +109,15 @@ transition: background-color 0.5s ease;
 button {
     min-width: 80%;
    }
+
+
+   .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px 0;
+    font-size: small;
+}   
